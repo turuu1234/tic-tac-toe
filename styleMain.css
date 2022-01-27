@@ -1,0 +1,23 @@
+﻿*
+body {
+    font-family:Arial;
+    background-color:bisque;
+}
+.header{
+    justify-content:center;
+    text-align:center;
+}
+.first{
+    box-sizing:border-box;
+    border: 1px solid black;
+    width:270px;
+    height:340px;
+    border-radius:10px;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    font-size:25px;
+}
+.first:hover{
+    background-color:floralwhite;
+}

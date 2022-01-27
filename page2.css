@@ -1,0 +1,100 @@
+﻿*, *::before, *::after{
+    box-sizing:border-box
+}
+.board{
+    width:100vw;
+    height:100vh;
+    display:grid;
+    grid-template-columns: repeat(5, auto);
+    justify-content:center;
+    align-content:center;
+}
+body {
+    margin:0;
+}
+.cell{
+    position:relative;
+    width:100px;
+    height:100px;
+    border: 1px solid black;
+    display:flex;
+    justify-content:center;
+    align-content:center;
+}
+.cell:first-child,
+.cell:nth-child(2),
+.cell:nth-child(3),
+.cell:nth-child(4),
+.cell:nth-child(5){
+    border-top:none;
+}
+.cell:nth-child(5n+1){
+    border-left:none;
+}
+.cell:nth-child(n+21){
+    border-bottom:none;
+}
+.cell:nth-child(5n+5){
+    border-right:none;
+}
+.board.x .cell:not(.x):not(.circle):hover::after,
+.board.x .cell:not(.x):not(.circle):hover::before{
+    background-color:lightgray;
+}
+.cell.x::before,
+.cell.x::after,
+.board.x .cell:not(.x):not(.circle):hover::after,
+.board.x .cell:not(.x):not(.circle):hover::before{
+position: absolute;
+content: '';
+height: 100px;
+width: 15px;
+}
+.cell.x::before,
+.cell.x::after{
+    background-color:black;
+}
+.cell.x::after,
+.board.x .cell:not(.x):not(.circle):hover::after{
+    transform:rotate(45deg);
+}
+.cell.x::before,
+.board.x .cell:not(.x):not(.circle):hover::before{
+    transform:rotate(-45deg)
+}
+
+.cell.circle::before,
+.cell.circle::after,
+.board.circle .cell:not(.x):not(.circle):hover::after,
+.board.circle .cell.cell:not(.x):not(.circle):hover::before{
+    content:'';
+    justify-content:center;
+    align-content:center;
+}
+.cell.circle::before,
+.board.circle .cell:not(.x):not(.circle):hover::before{
+    position:absolute;
+    height:95px;
+    width:95px;
+    border-radius:50%;
+}
+.cell.circle::before{
+    background-color:black;
+}
+.cell.circle::after{
+    background-color: white;
+}
+.cell.circle::after,
+.board.circle .cell:not(.x):not(.circle):hover::after{
+    position:absolute;
+    top:12.5px;
+    height:70px;
+    width:70px;
+    border-radius:50%;
+}
+.board.circle .cell:not(.x):not(.circle):hover::before{
+    background-color:lightgray;
+}
+.board.circle .cell:not(.x):not(.circle):hover::after{
+    background-color: white;
+}
